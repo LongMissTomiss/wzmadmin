@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, Switch } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 
-const Pages = ( { route }) => {
-   
+const Pages = ( props) => {
+    console.log(props,"Pages");
     const style1 = {
         display: "block",
         textDecoration: 'none'
@@ -14,7 +14,7 @@ const Pages = ( { route }) => {
             <Link to="/pages/users" style={style1} >uers</Link>
             <Switch>
                 {
-                    renderRoutes(route.routes)
+                   
                 }
             </Switch>
         </div>

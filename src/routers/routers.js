@@ -4,21 +4,36 @@ import Login from "../views/Login"
 import Pages from '../views/Pages'
 import News from '../views/Pages/News'
 import Users from '../views/Pages/Users'
+import NotFound from '../views/NotFound'
+import { Redirect } from 'react-router'
 
 const routersList = [
     {
+        path: '/',
+        exact: true,
+        auth: false,
+    },
+    {
         path: "/home",
         component: Home,
-        exact: true
+        exact: true,
+        auth:true
     },
     {
         path: "/login",
         component: Login,
-        exact: true
+        exact: true,
+        auth:false,
+    },
+    {
+        path: "/404",
+        component: NotFound,
+        auth:false
     },
     {
         path: "/pages",
         component: Pages,
+        auth:true,
         routes: [
             {
                 path: "/pages/news",
@@ -31,6 +46,10 @@ const routersList = [
                 exact: true
             }
         ]
+    },
+    {
+        path: '*',
+        component: () => <Redirect to="/404"/>
     }
 ]
 
